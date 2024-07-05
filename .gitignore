@@ -1,0 +1,9 @@
+*.pyc
+__pycache__/
+instance/
+.webassets-cache
+.env
+.mypy_cache/
+.db
+.alembic/
+.venv/
