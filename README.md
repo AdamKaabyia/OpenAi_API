@@ -45,6 +45,10 @@ docker-compose up --build
 # Run the tests:
 docker-compose run web pytest TEST/test_app.py
 
+docker ps
+
+docker exec -it <container_id_for_web_service> pytest TEST/test_app.py
+
 # for manual testing
 run these command in the bash:(you can replace "Where is norway?" with any question)
 
