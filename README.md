@@ -44,3 +44,14 @@ docker-compose up --build
 
 # Run the tests:
 docker-compose run web pytest TEST/test_app.py
+
+# for manual testing
+run these command in the bash:(you can replace "Where is norway?" with any question)
+
+$url = 'http://localhost:5000/ask'
+$body = '{"question": "Where is norway?"}'
+$headers = @{"Content-Type" = "application/json"}
+
+$response = Invoke-WebRequest -Uri $url -Method POST -Body $body -Headers $headers
+$response.Content
+
