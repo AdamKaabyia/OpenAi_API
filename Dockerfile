@@ -17,11 +17,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
+# Verify the script is copied and has correct permissions
+RUN ls -l /usr/local/bin/
+RUN cat /usr/local/bin/entrypoint.sh
+
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
 
 # Define environment variable
 ENV NAME World
 
-# Run entrypoint.sh when the container launches
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+# Explicitly use the shell to run the entrypoint
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/entrypoint.sh"]
