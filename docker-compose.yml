@@ -25,6 +25,8 @@ services:
       INIT_DB: "true"  # Add this line to control DB initialization
     networks:
       - backend
+    volumes:
+      - .:/app
     command: >
       ./entrypoint.sh  # Make sure the entrypoint.sh is executable and starts correctly
 

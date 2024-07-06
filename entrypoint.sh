@@ -19,4 +19,6 @@ fi
 
 # Start the Flask application
 echo "Starting Flask..."
+export PYTHONPATH=/app
+echo "PYTHONPATH: $PYTHONPATH"
 flask run --host=0.0.0.0

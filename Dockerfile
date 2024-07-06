@@ -12,7 +12,7 @@ COPY . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
-
+RUN pip install pytest
 # Copy entrypoint.sh to the bin directory and set permissions
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
@@ -20,6 +20,8 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 # Verify the script is copied and has correct permissions
 RUN ls -l /usr/local/bin/
 RUN cat /usr/local/bin/entrypoint.sh
+
+ENV PYTHONPATH=/app
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
